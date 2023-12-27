@@ -12,9 +12,11 @@
 // }).listen(port);
 // console.log(data)
 
-
+const Color = require('color');
 const express = require('express');
 const app = express()
+
+app.use(express.json())
 
 app.get("/about",(req,resp)=>{
   resp.send("local server is running about")
@@ -22,6 +24,16 @@ app.get("/about",(req,resp)=>{
 
 app.get("/",(req,resp)=>{
   resp.send("local server is running")
+})
+
+app.post("/user",(req,resp)=>{
+  console.log(req.body);
+  resp.send("this is user data....")
+})
+
+app.post("/user2",(req,resp)=>{
+  console.log(req.body);
+  resp.send("this is user2 data....")
 })
 app.listen(8000,()=>{
   console.log("local host is running");
