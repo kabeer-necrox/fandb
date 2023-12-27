@@ -1,5 +1,7 @@
-// console.log("this is the code");
+const http = require("http")
 
-
-const fs = require("fs");
-fs.writeFileSync("fruit.txt", "this is a simple text");
+const port = 4000;
+http.createServer((req,resp)=>{
+resp.write(`welcome to local host:${port}`);
+resp.end()
+}).listen(port)
